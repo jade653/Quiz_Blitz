@@ -1,11 +1,58 @@
-# Monad Blitz Seoul Submission Process
+# Monad Quiz
 
-1. Visit the `monad-blitz-seoul` repo (link [here](https://github.com/monad-developers/monad-blitz-seoul)) and fork it.
+블록체인 상에서 누구나 문제를 만들고, 참가자들이 지갑을 통해 답을 제출하면  
+**가장 먼저 정답을 맞춘 순서대로 보상을 분배**하는 온체인 퀴즈 플랫폼입니다.  
+백엔드 서버 없이 **모든 데이터와 로직이 온체인에서 검증**되는 구조를 목표로 합니다.
 
-<img width="1511" alt="Screenshot 2025-07-07 at 10 17 05 AM" src="https://github.com/user-attachments/assets/341c6774-f5ea-484d-a700-28e89eee9f95" />
+---
 
-2. Give it your project name, a one-liner description, make sure you are forking `main` branch and click `Create Fork`.
+## 왜 Monad Quiz인가?
+- **참여형**: 문제 출제자가 곧 라운드를 시작 → 누구나 게임의 주체
+- **투명성**: 문제/정답/참여 기록 모두 온체인에 기록 → 조작 불가
+- **실시간성**: 빠른 정답 제출 순으로 보상 → 공정한 경쟁
+- **확장성**: Chainlink 오라클, Automation 등 외부 인프라와 연동 가능
 
-<img width="1511" alt="Screenshot 2025-07-07 at 10 17 55 AM" src="https://github.com/user-attachments/assets/b4a60b3b-6fd9-42b8-ba38-77fd79f76986" />
+---
 
-3. In your fork you can make all the changes you want, add code of your project, create branches, add information to `README.md`, you can change anything and everything.
+## 게임 진행 로직
+1. **참가 신청 (0~50초)**  
+   참가자들이 지갑 연결 후 게임 참여를 신청
+
+2. **신청 마감 및 10초 카운트다운 (50~60초)**  
+   마감 후 문제가 오픈되기 전 10초 카운트다운
+
+3. **정답 제출 (60~90초)**  
+   참가자들이 트랜잭션으로 정답 제출  
+   → **가장 먼저 맞춘 순서대로 보상 분배**
+
+---
+
+## 문제 타입
+1. **일반형**  
+   - 산수/단답식  
+   - 컨트랙트가 직접 정답 검증  
+
+2. **오라클형**  
+   - **Chainlink Price Feeds** 사용  
+   - 예: `"ETH/USD > BTC/USD ?"`  
+   - 온체인 오라클 값으로 자동 채점  
+
+---
+
+## 참여 방법
+- 발표 시 제공되는 **QR 코드**로 각자 폰에서 접속  
+- **Metamask 등 지갑 연결** → 문제 읽기 → 트랜잭션으로 답 제출  
+- 모든 로직이 온체인에서 실행되므로 **별도 백엔드 불필요**
+
+---
+
+## 📈 확장 가능성
+- 현재: 출제자가 수동으로 문제 생성  
+- **향후**: `Chainlink Automation` + Monad 확장 기능을 통해  
+  **5분마다 자동으로 문제 생성/출제** 가능  
+
+---
+
+## 🌟 핵심 메시지
+**“모든 퀴즈 데이터와 로직이 온체인에서 돌아가는  
+투명하고 공정한 Web3 퀴즈 게임”**
